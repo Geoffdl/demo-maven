@@ -27,6 +27,7 @@
             <artifactId>jfiglet</artifactId>
             <version>0.0.9</version>
         </dependency>
+
     </dependencies>
 
 
@@ -62,8 +63,30 @@
                     </execution>
                 </executions>
             </plugin>
-
+            <!-- custom plugin (uploaded version) -->
+            <plugin>
+                <groupId>io.github.geoffdl</groupId>
+                <artifactId>polite-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                    <execution>
+                        <id>polite-compile</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>isVeryPolite</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>polite-package</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>isVeryPolite</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <!-- custom plugin -->
+            <!-- old version
             <plugin>
                 <groupId>com.geoff</groupId>
                 <artifactId>polite-maven-plugin</artifactId>
@@ -76,7 +99,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin> -->
         </plugins>
     </build>
 </project>

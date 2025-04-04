@@ -33,12 +33,20 @@
         </executions>
       </plugin>
       <plugin>
-        <groupId>com.geoff</groupId>
+        <groupId>io.github.geoffdl</groupId>
         <artifactId>polite-maven-plugin</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0</version>
         <executions>
           <execution>
+            <id>polite-compile</id>
             <phase>compile</phase>
+            <goals>
+              <goal>isVeryPolite</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>polite-package</id>
+            <phase>package</phase>
             <goals>
               <goal>isVeryPolite</goal>
             </goals>
