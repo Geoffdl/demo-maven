@@ -1,39 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-  <groupId>fr.diginamic.d022025</groupId>
-  <artifactId>demo-with-maven</artifactId>
-  <version>1.0-SNAPSHOT</version>
+    <groupId>fr.diginamic.d022025</groupId>
+    <artifactId>demo-with-maven</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
-  <name>demo-with-maven</name>
+    <name>demo-with-maven</name>
 
-  <url>https://www.digi.fr</url>
+    <url>https://www.digi.fr</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <junit.version>3.8.1</junit.version>
-  </properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <junit.version>3.8.1</junit.version>
+    </properties>
 
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>${junit.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.github.lalyos</groupId>
-      <artifactId>jfiglet</artifactId>
-      <version>0.0.9</version>
-    </dependency>
-  </dependencies>
-
-
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.lalyos</groupId>
+            <artifactId>jfiglet</artifactId>
+            <version>0.0.9</version>
+        </dependency>
+    </dependencies>
 
 
-  <build>
-    <finalName>${project.artifactId}</finalName>
+    <build>
+<!--        <finalName>${project.artifactId} - ${project.artifactId}</finalName>-->
+        <finalName>demo-maven</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>
+                                fr.diginamic.d022025.dev.App
+                            </mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
 
-  </build>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.5.3</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- custom plugin -->
+            <plugin>
+                <groupId>com.geoff</groupId>
+                <artifactId>polite-maven-plugin</artifactId>
+                <version>1.0-SNAPSHOT</version>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>isVeryPolite</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

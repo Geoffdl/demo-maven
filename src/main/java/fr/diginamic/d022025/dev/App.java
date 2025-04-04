@@ -1,4 +1,4 @@
-package fr.diginamic.d022025;
+package fr.diginamic.d022025.dev;
 
 import com.github.lalyos.jfiglet.FigletFont;
 
@@ -13,7 +13,7 @@ public class App {
 
         try
         {
-            String asciiArt = FigletFont.convertOneLine("Welcome to Demo-Maven");
+            String asciiArt = FigletFont.convertOneLine("Wouuaow, Demo-repo looking stylish");
             System.out.println(asciiArt);
         } catch (IOException e)
         {
